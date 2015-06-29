@@ -1233,13 +1233,13 @@ class tx_realurl {
 				}
 			}
 		}
-		$this->filePart = array_pop($pathParts);
 
 		// Checking default HTML name:
 		if (strlen($this->filePart) && ($this->extConf['fileName']['defaultToHTMLsuffixOnPrev']
 			|| $this->extConf['fileName']['acceptHTMLsuffix'])
 			&& !isset($this->extConf['fileName']['index'][$this->filePart]))
 		{
+			$this->filePart = array_pop($pathParts);
 			$suffix = preg_quote($this->isString($this->extConf['fileName']['defaultToHTMLsuffixOnPrev'], 'defaultToHTMLsuffixOnPrev') ? $this->extConf['fileName']['defaultToHTMLsuffixOnPrev'] : '.html', '/');
 			if ($this->isString($this->extConf['fileName']['acceptHTMLsuffix'], 'acceptHTMLsuffix')) {
 				$suffix = '(' . $suffix . '|' . preg_quote($this->extConf['fileName']['acceptHTMLsuffix'], '/') . ')';
