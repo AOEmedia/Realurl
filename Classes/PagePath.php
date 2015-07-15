@@ -138,7 +138,7 @@ class Tx_Realurl_PagePath {
 		if ($this->pObj->extConf['init']['enableAllUnicodeLetters']) {
 			array_walk($pagePathOrigin, create_function('&$pathSegment', '$pathSegment = mb_detect_encoding($pathSegment, "ASCII", TRUE) ? $pathSegment : rawurlencode($pathSegment);'));
 		}
-		$this->pObj->appendFilePart($pagePathOrigin);
+
 		$keepPath = array ();
 			//Check for redirect
 		$this->checkAndDoRedirect ( $pagePathOrigin );
