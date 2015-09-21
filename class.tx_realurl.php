@@ -1285,7 +1285,7 @@ class tx_realurl {
 			$cHash_value = $this->decodeSpURL_cHashCache($speakingURIpath);
 			if ($cHash_value) {
 				$cachedInfo['GET_VARS']['cHash'] = $cHash_value;
-			} elseif (!empty($cachedInfo['GET_VARS'])) {
+			} elseif (!empty($cachedInfo['GET_VARS']) && strlen(\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('QUERY_STRING')) == 0) {
 				/** @var TYPO3\CMS\Frontend\Page\CacheHashCalculator $cacheHashCalculator */
 				$cacheHashCalculator = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Frontend\Page\CacheHashCalculator');
 				$queryString = \TYPO3\CMS\Core\Utility\GeneralUtility::implodeArrayForUrl('', $cachedInfo['GET_VARS']);
