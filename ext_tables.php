@@ -67,6 +67,7 @@ $TCA['pages']['palettes']['137'] = array(
 );
 
 t3lib_extMgm::addFieldsToPalette('pages', '3', 'tx_realurl_nocache', 'after:cache_timeout');
+t3lib_extMgm::addFieldsToPalette('pages', 'caching', 'tx_realurl_nocache', 'after:cache_timeout');
 t3lib_extMgm::addToAllTCAtypes('pages', 'tx_realurl_pathsegment;;137;;,tx_realurl_exclude', '1,4,199,254', 'after:title');
 t3lib_extMgm::addToAllTCAtypes('pages', 'tx_realurl_exclude', '3', 'after:title');
 
@@ -105,5 +106,3 @@ $TCA['pages_language_overlay']['columns'] += array(
 );
 
 t3lib_extMgm::addToAllTCAtypes('pages_language_overlay', 'tx_realurl_pathsegment,tx_realurl_pathoverride,tx_realurl_exclude', '', 'after:nav_title');
-
-?>
