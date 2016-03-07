@@ -81,7 +81,7 @@ class tx_realurl_crawler {
 	 *
 	 * @author Michael Klapper <michael.klapper@aoe.com>
 	 */
-	public function headerNoCache($params, $tsfe) {
+	public function headerNoCache(&$params, $tsfe) {
 
 		 if (
 			t3lib_extMgm::isLoaded('crawler')
@@ -90,8 +90,8 @@ class tx_realurl_crawler {
 		) {
 			$params['pObj']->applicationData['tx_crawler']['log'][] = 'Force page generation (realurl - rebuild)';
 
-				// force fresh page generation without using cache data 
-			$tsfe->all = '';
+			// Disables a look-up for cached page data - thus resulting in re-generation of the page even if cached.
+			$params['disableAcquireCacheData'] = true;
 		}
 	}
 }
